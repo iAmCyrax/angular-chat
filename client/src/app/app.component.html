@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>Chat App</h1>
+
+  <div class="messages">
+    <div
+      class="message"
+      [ngClass]="{
+        'chat-message': message.type !== 'connection',
+        'info-message': message.type === 'connection',
+        'current-users-message': currentAuthorId === message.author
+      }"
+      *ngFor="let message of messageList"
+    >
+      <div class="author" *ngIf="message.type !== 'connection'">
+        {{ message.author
+        }}<span *ngIf="currentAuthorId === message.author"> (You)</span>
+      </div>
+      <div class="content">{{ message.content }}</div>
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <mat-form-field class="sendMessage" appearance="fill">
+    <mat-label>Message</mat-label>
+    <input
+      matInput
+      [(ngModel)]="newMessage"
+      (keyup)="$event.keyCode == 13 && sendMessage()"
+      autofocus
+    />
+  </mat-form-field>
+
+  <button mat-flat-button color="primary" (click)="sendMessage()">SEND</button>
+</div>
