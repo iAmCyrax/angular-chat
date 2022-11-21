@@ -11,11 +11,22 @@
       }"
       *ngFor="let message of messageList"
     >
-      <div class="author" *ngIf="message.type !== 'connection'">
-        {{ message.author
-        }}<span *ngIf="currentAuthorId === message.author"> (You)</span>
+      <div class="top">
+        <div class="author" *ngIf="message.type !== 'connection'">
+          {{ message.author }}
+          <span *ngIf="currentAuthorId === message.author"> (You)</span>
+        </div>
+
+        <div class="time" *ngIf="message.type !== 'connection'">
+          {{ message.timestamp | date: "shortTime" }}
+        </div>
       </div>
-      <div class="content">{{ message.content }}</div>
+      <div class="content">
+        <span *ngIf="message.type === 'connection'">
+          ({{ message.timestamp | date: "shortTime" }})
+        </span>
+        {{ message.content }}
+      </div>
     </div>
   </div>
 

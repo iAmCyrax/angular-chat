@@ -23,7 +23,7 @@
 
 .author {
   // font-size: smaller;
-  opacity: 0.4;
+  // opacity: 0.4;
 }
 
 .current-users-message {
@@ -32,4 +32,14 @@
 
 .message-divider {
   margin: 10px 0;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  opacity: 0.4;
+}
+
+.time {
+  // margin-right: auto;
 }

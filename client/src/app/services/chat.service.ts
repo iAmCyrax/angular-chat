@@ -10,6 +10,7 @@ export class ChatService {
   message$: BehaviorSubject<Message> = new BehaviorSubject({
     author: '',
     content: '',
+    timestamp: new Date()
   });
 
   constructor() {}
@@ -19,6 +20,7 @@ export class ChatService {
   sendMessage(message: Omit<Message, 'author'>) {
     this.socket.emit('message', {
       content: message.content,
+      timestamp: message.timestamp,
       author: this.socket.id.substring(0, 5),
     });
   }

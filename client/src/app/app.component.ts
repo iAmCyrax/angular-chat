@@ -5,7 +5,7 @@ import { ChatService } from './services/chat.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   newMessage: string;
@@ -20,13 +20,12 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.chatService.getNewMessage().subscribe((message) => {
       this.messageList.push(message);
-      console.log(this.messageList);
     });
     this.messageList.shift();
   }
 
   sendMessage() {
-    this.chatService.sendMessage({ content: this.newMessage });
+    this.chatService.sendMessage({ content: this.newMessage, timestamp: new Date() });
     this.newMessage = '';
   }
 }
