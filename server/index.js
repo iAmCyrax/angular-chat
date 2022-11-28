@@ -33,7 +33,8 @@ io.on("connection", (socket) => {
         io.emit("message", {
             content: `${socket.id.substring(0, 5)} Leaved!`,
             author: "System",
-            type: "connection"
+            type: "connection",
+            timestamp: new Date(),
         });
     });
 });

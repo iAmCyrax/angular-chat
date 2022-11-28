@@ -13,8 +13,8 @@
     >
       <div class="top">
         <div class="author" *ngIf="message.type !== 'connection'">
-          {{ message.author }}
-          <span *ngIf="currentAuthorId === message.author"> (You)</span>
+          <span *ngIf="currentAuthorId === message.author; else author">You</span>
+          <ng-template #author>{{ message.author }}</ng-template>
         </div>
 
         <div class="time" *ngIf="message.type !== 'connection'">
