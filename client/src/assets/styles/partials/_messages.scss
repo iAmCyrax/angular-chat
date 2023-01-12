@@ -1,0 +1,44 @@
+@import "../utils/palettes";
+
+.message {
+  margin: 5px 0;
+
+  &-top {
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.4;
+  }
+
+  &-time {
+    margin-left: 10px;
+  }
+}
+
+.info-message {
+  font-style: italic;
+}
+
+.chat-message {
+  background-color: $accent-500;
+  border-radius: 4px;
+  padding: 5px;
+  // min-width: 100px;
+  // width: 100px;
+  width: fit-content;
+  max-width: 300px;
+  word-wrap: break-word;
+}
+
+.current-users-message {
+  background-color: $primary-500 !important;
+}
+
+.message-divider {
+  margin: 10px 0;
+}
+
+.send-message-btn {
+  width: 100%;
+  // top: 0;
+  margin: 10px 10px 20px 0;
+}

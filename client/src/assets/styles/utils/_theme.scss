@@ -1,0 +1,16 @@
+@use "@angular/material" as mat;
+@import "palettes";
+
+@include mat.core();
+
+$chat-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: mat.define-palette($md-primary),
+      accent: mat.define-palette($md-accent),
+      warn: mat.define-palette($md-warn),
+    ),
+  )
+);
+
+@include mat.all-component-themes($chat-theme);

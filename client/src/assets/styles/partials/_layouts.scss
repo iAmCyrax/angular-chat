@@ -1,0 +1,49 @@
+.mx {
+  &-xs {
+    margin-left: 3px !important;
+    margin-right: 3px !important;
+  }
+
+  &-sm {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+  }
+
+  &-md {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+
+  &-lg {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }
+}
+
+.my {
+  &-xs {
+    margin-bottom: 3px !important;
+    margin-top: 3px !important;
+  }
+
+  &-sm {
+    margin-bottom: 5px !important;
+    margin-top: 5px !important;
+  }
+
+  &-md {
+    margin-bottom: 10px !important;
+    margin-top: 10px !important;
+  }
+
+  &-lg {
+    margin-bottom: 20px !important;
+    margin-top: 20px !important;
+  }
+}
+
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

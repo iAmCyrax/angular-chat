@@ -10,6 +10,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +24,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSnackBarModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

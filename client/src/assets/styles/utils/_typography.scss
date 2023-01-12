@@ -1,0 +1,7 @@
+@import "@angular/material/theming";
+
+$chat-typography: mat-typography-config(
+  $font-family: "'Poppins', sans-serif",
+);
+
+@include angular-material-typography($chat-typography);

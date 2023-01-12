@@ -2,45 +2,53 @@
   <h1>Chat App</h1>
 
   <div class="messages">
-    <div
-      class="message"
-      [ngClass]="{
-        'chat-message': message.type !== 'connection',
-        'info-message': message.type === 'connection',
-        'current-users-message': currentAuthorId === message.author
-      }"
-      *ngFor="let message of messageList"
-    >
-      <div class="top">
-        <div class="author" *ngIf="message.type !== 'connection'">
-          <span *ngIf="currentAuthorId === message.author; else author">You</span>
-          <ng-template #author>{{ message.author }}</ng-template>
-        </div>
+    <div class="message-frame">
+      <div
+        class="message"
+        [ngClass]="{
+          'chat-message': message.type !== 'connection',
+          'info-message': message.type === 'connection',
+          'current-users-message': currentAuthorId === message.author
+        }"
+        *ngFor="let message of messageList"
+      >
+        <div class="message-top">
+          <div class="message-author" *ngIf="message.type !== 'connection'">
+            <span *ngIf="currentAuthorId === message.author; else author">You</span>
+            <ng-template #author>{{ message.author }}</ng-template>
+          </div>
 
-        <div class="time" *ngIf="message.type !== 'connection'">
-          {{ message.timestamp | date: "shortTime" }}
+          <div class="message-time" *ngIf="message.type !== 'connection'">
+            {{ message.timestamp | date: "shortTime" }}
+          </div>
         </div>
-      </div>
-      <div class="content">
-        <span *ngIf="message.type === 'connection'">
-          ({{ message.timestamp | date: "shortTime" }})
-        </span>
-        {{ message.content }}
+        <div class="content">
+          <span *ngIf="message.type === 'connection'">
+            ({{ message.timestamp | date: "shortTime" }})
+          </span>
+          {{ message.content }}
+        </div>
       </div>
     </div>
   </div>
 
-  <mat-divider></mat-divider>
+  <!-- <mat-divider></mat-divider> -->
 
-  <mat-form-field class="sendMessage" appearance="fill">
-    <mat-label>Message</mat-label>
-    <input
-      matInput
-      [(ngModel)]="newMessage"
-      (keyup)="$event.keyCode == 13 && sendMessage()"
-      autofocus
-    />
-  </mat-form-field>
+  <div class="form">
+    <mat-form-field class="send-message-btn" appearance="outline">
+      <mat-label>Message</mat-label>
+      <input
+        matInput
+        [(ngModel)]="newMessage"
+        (keyup)="$event.keyCode == 13 && sendMessage()"
+        autofocus
+      />
+      <button mat-icon-button matSuffix (click)="sendMessage()">
+        <mat-icon>send</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
 
-  <button mat-flat-button color="primary" (click)="sendMessage()">SEND</button>
+  <!-- <button mat-flat-button color="primary" (click)="sendMessage()">SEND</button> -->
 </div>
+
