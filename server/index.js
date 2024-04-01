@@ -8,6 +8,8 @@ const io = new Server(httpServer, { cors: { origin: "*" } });
 
 const port = process.env.PORT || 3000;
 
+app.get('/', (req, res) => res.send('Angular Chat'));
+
 io.on("connection", (socket) => {
     // console.log("A user connected.");
     io.emit("message", {
