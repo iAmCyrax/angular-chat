@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Welcome!</h1>
+<div mat-dialog-content>
+    <p>Before you start, what is your name?</p>
+    <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input
+            matInput
+            [(ngModel)]="username"
+            (keyup.enter)="closeDialog()"
+        >
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-flat-button color="primary" (click)="closeDialog()">OKAY</button>
+</div>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Message } from './models/message';
 import { ChatService } from './services/chat.service';
+import { MatDialog } from '@angular/material/dialog';
+import { StartDialogComponent } from './components';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +13,7 @@ import { ChatService } from './services/chat.service';
 export class AppComponent implements OnInit {
   newMessage: string;
   messageList: Message[] = [];
+  username: string;
 
   public get currentAuthorId(): string {
     return this.chatService.socket.id.substring(0, 5);
@@ -18,10 +21,18 @@ export class AppComponent implements OnInit {
 
   constructor(
     private chatService: ChatService,
-    private snackBar: MatSnackBar
-  ) {}
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog,
+  ) { }
 
   ngOnInit(): void {
+    const dialog = this.openStartDialog();
+
+    dialog.afterClosed().subscribe(value => { 
+      this.username = value;
+      this.snackBar.open(`Welcome ${value}!`);
+    });
+
     this.chatService.getNewMessage().subscribe((message) => {
       this.messageList.push(message);
     });
@@ -41,5 +52,11 @@ export class AppComponent implements OnInit {
       timestamp: new Date(),
     });
     this.newMessage = '';
+  }
+
+  openStartDialog() {
+    const dialog = this.dialog.open(StartDialogComponent, { disableClose: true });
+
+    return dialog;
   }
 }

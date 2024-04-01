@@ -12,9 +12,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { StartDialogComponent } from './components/start-dialog/start-dialog.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, StartDialogComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -25,6 +27,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatInputModule,
     MatSnackBarModule,
+    MatDialogModule,
     MatIconModule,
   ],
   providers: [],
